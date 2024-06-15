@@ -19,6 +19,11 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
+import com.example.notatnik_geolokalizacja.worker.NotificationWorker
+import java.util.concurrent.TimeUnit
 
 class CreateNoteFragment : Fragment() {
 
@@ -31,7 +36,7 @@ class CreateNoteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentCreateNoteBinding.inflate(inflater, container, false)
 
@@ -59,6 +64,7 @@ class CreateNoteFragment : Fragment() {
 
         viewModel.addNotes(data)
 
+        scheduleNotification()
         Navigation.findNavController(view).navigate(R.id.action_createNoteFragment_to_homeFragment)
     }
     private fun getLocationPermission() {
@@ -84,5 +90,13 @@ class CreateNoteFragment : Fragment() {
                     longitude = location.longitude
                 }
             }
+    }
+    private fun scheduleNotification() {
+        val notificationWorkRequest: WorkRequest =
+            OneTimeWorkRequestBuilder<NotificationWorker>()
+                .setInitialDelay(5, TimeUnit.SECONDS)
+                .build()
+
+        WorkManager.getInstance(requireContext()).enqueue(notificationWorkRequest)
     }
 }

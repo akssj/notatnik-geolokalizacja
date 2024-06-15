@@ -12,9 +12,8 @@ class NoteAdapter(val viewModel: NotesViewModel,
 
     RecyclerView.Adapter<NoteAdapter.NotesViewHolder>() {
 
-    class NotesViewHolder(val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
+    class NotesViewHolder(val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root)
 
-    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         return NotesViewHolder(
             ItemNoteBinding.inflate(

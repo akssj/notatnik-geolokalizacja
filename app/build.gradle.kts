@@ -55,7 +55,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -89,4 +88,6 @@ dependencies {
     implementation(libs.androidx.room.ktx.v230)
     androidTestImplementation(libs.androidx.room.testing)
     implementation(libs.play.services.location)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.core)
 }

@@ -1,6 +1,8 @@
 [versions]
 activityKtx = "1.9.0"
 agp = "8.4.2"
+androidxCoreKtx = "1.13.1"
+coreKtxVersion = "2.2.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -14,20 +16,24 @@ lifecycleRuntimeKtx = "2.8.2"
 activityCompose = "1.9.0"
 composeBom = "2024.06.00"
 navigationFragmentKtx = "2.7.7"
-navigationFragmentKtxVersion = "2.3.5"
+navigationFragmentKtxVersion = "2.7.7"
 navigationSafeArgsGradlePlugin = "2.7.7"
 navigationUiKtx = "2.7.7"
-navigationUiKtxVersion = "2.3.5"
+navigationUiKtxVersion = "2.7.7"
 playServicesLocation = "21.3.0"
 roomCommon = "2.6.1"
 roomKtx = "2.6.1"
-roomKtxVersion = "2.3.0"
+roomKtxVersion = "2.6.1"
 roomRuntime = "2.6.1"
 roomTesting = "2.6.1"
+workRuntimeKtx = "2.9.0"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
+androidx-core = { module = "androidx.core:core", version.ref = "androidxCoreKtx" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-ktx-v170 = { module = "androidx.core:core-ktx", version.ref = "androidxCoreKtx" }
+androidx-core-ktx-v220 = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
 androidx-lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-extensions = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "lifecycleExtensions" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -37,6 +43,7 @@ androidx-navigation-ui-ktx-v235 = { module = "androidx.navigation:navigation-ui-
 androidx-room-ktx-v230 = { module = "androidx.room:room-ktx", version.ref = "roomKtxVersion" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "roomTesting" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

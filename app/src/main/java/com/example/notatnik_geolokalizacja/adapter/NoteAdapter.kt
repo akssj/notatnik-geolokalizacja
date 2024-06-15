@@ -29,6 +29,7 @@ class NoteAdapter(val viewModel: NotesViewModel,
         val data = notesList[position]
         holder.binding.noteText.text = data.notes
         holder.binding.noteDate.text = data.date
+        holder.binding.noteLocation.text = "Lat: ${data.latitude}, Lon: ${data.longitude}"
 
         holder.binding.root.setOnClickListener {
             viewModel.deleteNotes(data.id!!)

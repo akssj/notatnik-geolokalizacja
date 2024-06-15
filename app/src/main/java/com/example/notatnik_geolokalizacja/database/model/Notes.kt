@@ -8,5 +8,7 @@ class Notes(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
     var notes: String,
-    var date: String
+    var date: String,
+    var latitude: Double?,
+    var longitude: Double?
     )

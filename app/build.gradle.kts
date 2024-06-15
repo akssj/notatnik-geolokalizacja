@@ -88,4 +88,5 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
     implementation(libs.androidx.room.ktx.v230)
     androidTestImplementation(libs.androidx.room.testing)
+    implementation(libs.play.services.location)
 }

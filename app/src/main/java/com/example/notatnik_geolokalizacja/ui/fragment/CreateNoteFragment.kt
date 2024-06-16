@@ -25,6 +25,9 @@ import androidx.work.WorkRequest
 import com.example.notatnik_geolokalizacja.worker.NotificationWorker
 import java.util.concurrent.TimeUnit
 
+/**
+ * Fragment for creating a new note.
+ */
 class CreateNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateNoteBinding
@@ -33,6 +36,13 @@ class CreateNoteFragment : Fragment() {
     private var latitude: Double? = null
     private var longitude: Double? = null
 
+    /**
+     * Create fragment user interface view.
+     * @param inflater object that can be used to inflate views in the fragment.
+     * @param container parent view.
+     * @param savedInstanceState
+     * @return returns the View for the fragments ui.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +60,10 @@ class CreateNoteFragment : Fragment() {
         return binding.root
     }
 
+    /**
+     * Creates a new note and saves it to the database.
+     * @param view current view.
+     */
     private fun createNotes(view: View) {
         val notes = binding.editTextNotes.text.toString()
         val currentDate = DateFormat.format("dd MM yyyy", Date()).toString()
@@ -67,6 +81,9 @@ class CreateNoteFragment : Fragment() {
         scheduleNotification()
         Navigation.findNavController(view).navigate(R.id.action_createNoteFragment_to_homeFragment)
     }
+    /**
+     * Checks for location permission and requests it if not already granted.
+     */
     private fun getLocationPermission() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
@@ -76,6 +93,9 @@ class CreateNoteFragment : Fragment() {
         }
     }
 
+    /**
+     * Gets the last known location of the device.
+     */
     private fun getLastLocation() {
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -91,6 +111,9 @@ class CreateNoteFragment : Fragment() {
                 }
             }
     }
+    /**
+     * Schedules a notification to be shown after a delay.
+     */
     private fun scheduleNotification() {
         val notificationWorkRequest: WorkRequest =
             OneTimeWorkRequestBuilder<NotificationWorker>()

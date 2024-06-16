@@ -6,6 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.notatnik_geolokalizacja.database.model.Notes
 
+/**
+ * Room database class for managing the notes database.
+ */
 @Database(entities = [Notes::class], version = 4, exportSchema = false)
 abstract class NotesDatabase : RoomDatabase() {
 
@@ -15,6 +18,11 @@ abstract class NotesDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: NotesDatabase? = null
 
+        /**
+         * Method to get the singleton instance of the database.
+         * @param context
+         * @return instance of NotesDatabase.
+         */
         fun getDatabaseInstance(context: Context): NotesDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {

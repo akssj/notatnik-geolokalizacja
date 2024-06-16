@@ -10,16 +10,28 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.example.notatnik_geolokalizacja.R
 
+/**
+ * Class for creating and displaying notifications.
+ * @param context
+ * @param params Parameters to construct the worker(time delay).
+ */
 class NotificationWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
 
+    /**
+     * Init to send notification
+     * @return Result indicating success or failure.
+     */
     override fun doWork(): Result {
         sendNotification()
         return Result.success()
     }
 
+    /**
+     * Method to create and display a notification.
+     */
     private fun sendNotification() {
         val channelId = "channel_id"
-        val name = "Channel"
+        val name = "Channel_name"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val mChannel = NotificationChannel(channelId, name, NotificationManager.IMPORTANCE_DEFAULT)

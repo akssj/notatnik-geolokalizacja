@@ -5,6 +5,10 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
+/**
+ * Entry point of the application.
+ * Sets up the navigation controller to manage navigation between fragments.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
